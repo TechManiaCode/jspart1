@@ -1,2 +1,2 @@
-# jspart1
-Methods and algorithm in the js
+# Methods and algorithm in the js
+More information in future.
