@@ -2,7 +2,7 @@
 
 ## To do: 
 All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For example:
-- Instructions:
+- Instruction:
 ```txt
 You are going to be given a word. Your job is to return the middle 
 character of the word. If the word's length is odd, return the middle character.
