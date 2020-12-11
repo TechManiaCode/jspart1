@@ -1,8 +1,8 @@
-# Methods and algorithm with js
+# Methods and algorithms with JS
 
 ## To do:
-<details> 
-  <summary style="outline:none"><a href=https://www.codewars.com/>Codewars Tasks</a></summary>
+
+  ### [CodeWars Tasks](https://www.codewars.com)
   <details>
     <summary style="margin-left: 10px;outline:none">Middle letter</summary>
 
@@ -46,22 +46,16 @@
   }
   ```
   1. indexShift~ variables are introduced to avoid 'magical numbers' +1 and -1.
-  2. We ask what is the center of the word, but since we resolve with slice, we need index values and indices start with 0 so we subtract 1 from length. Hence, for a 4-letter word with indices 0 1 2 3 we know that the center would be between 1 and 2, at 1.5.
+  2. We ask what is the center of the word, but since we resolve with slice, we need index value and indices start with 0 so we subtract 1 from length. Hence, for a 4-letter word with indices 0 1 2 3 we know that the center would be between 1 and 2, at 1.5.
   3. Since indices are integers, we use closest approximates with Math methods, depending on their "side" ("left" and "right" from 1.5)
   4. For an end value we need to add 1 to the result because end value of slice function is non-inclusive;
-
   </details>
-  
-  
-</details>
-<details>
-  <summary><a href="https://adventofcode.com/">AdventOfCode</a></summary>
+
+### [AdventOfCode](https://adventofcode.com/)
 
 
-</details>
-<details>
-  <summary><a href="https://scrimba.com/learn/adventcalendar">Scrimba</a></summary>
-</details>
+
+### [Scrimba](https://scrimba.com/learn/adventcalendar)
   
 ## Licenses
 Preambles for different Licenses.
