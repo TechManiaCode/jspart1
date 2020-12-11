@@ -28,27 +28,27 @@
     > The middle character(s) of the word represented as a string.
 
   - ### Solution:
-  #### Short
-  ```javascript
-    const getMiddle = s => s.slice(Math.floor((s.length - 1) / 2), Math.ceil((s.length + 1) / 2));
-  ```
-  It's a solution that just happens to work but we don't know exactly why.
+    #### Short
+    ```javascript
+      const getMiddle = s => s.slice(Math.floor((s.length - 1) / 2), Math.ceil((s.length + 1) / 2));
+    ```
+    It's a solution that just happens to work but we don't know exactly how.
   
-  #### Elaborate
-  ```javascript
-  const getMiddle = word => {
-      const indexShiftFromZero = 1;
-      const indexShiftSliceEnd = 1;
-      const center = (word.length - indexShiftFromZero) / 2;
-      const start = Math.floor(center);
-      const end = Math.ceil(center) + indexShiftSliceEnd;
-      return word.slice(start,end);
-  }
-  ```
-  1. indexShift~ variables are introduced to avoid 'magical numbers' +1 and -1.
-  2. We ask what is the center of the word, but since we resolve with slice, we need index value and indices start with 0 so we subtract 1 from length. Hence, for a 4-letter word with indices 0 1 2 3 we know that the center would be between 1 and 2, at 1.5.
-  3. Since indices are integers, we use closest approximates with Math methods, depending on their "side" ("left" and "right" from 1.5)
-  4. For an end value we need to add 1 to the result because end value of slice function is non-inclusive;
+    #### Elaborate
+    ```javascript
+    const getMiddle = word => {
+        const indexShiftFromZero = 1;
+        const indexShiftSliceEnd = 1;
+        const center = (word.length - indexShiftFromZero) / 2;
+        const start = Math.floor(center);
+        const end = Math.ceil(center) + indexShiftSliceEnd;
+        return word.slice(start,end);
+    }
+    ```
+    - *indexShift* variables are introduced to avoid **magical numbers** +1 and -1.
+    - We ask for the center of the word but since we use slice, we need index values and **indices start with 0** so we subtract 1 from length. We see that for a 4-letter word with indices 0 1 2 3 the center would be between 1 and 2, at 1.5.
+    - Since **indices are integers**, we use closest approximates with Math methods, depending on their "side" ("left" and "right" from 1.5)
+    - For an end value we need to add 1 to the result because **end value of slice function is non-inclusive**;
   </details>
 
 ### [AdventOfCode](https://adventofcode.com/)
