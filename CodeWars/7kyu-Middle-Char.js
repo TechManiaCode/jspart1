@@ -7,7 +7,6 @@ const getMiddle = word => {
     return word.slice(start,end);
 }
 
-//sliceEndCompenser istnieje żeby wyjaśnić co się skraca w przypadku końcowego indeksu
 getMiddle('test') //?
 getMiddle('testing') //?
 getMiddle('middle') //?
