@@ -75,40 +75,39 @@
   <details>
     <summary>Day 2 - Compound interest</summary>
 
-  - ### Instruction
-  > Obtain a number of years needed with compound interest operation to reach given threshold.
-  > #### Input
-  > - (Int) deposit - initial value of money
-  > - (Int) rate - percent we get each year
-  > - (Int) threshold - money goal we want to reach
-  > #### Output
-  > (Int) Year at which we reach the threshold
-  - ### Solution
+    - ### Instruction
+    > Obtain a number of years needed with compound interest operation to reach given threshold.
+    > #### Input
+    > - (Int) deposit - initial value of money
+    > - (Int) rate - percent we get each year
+    > - (Int) threshold - money goal we want to reach
+    > #### Output
+    > (Int) Year at which we reach the threshold
+    - ### Solution
+    #### Iterative method
+    ```javascript
+    function depositProfit(deposit, rate, threshold) {
+      for (var year = 0; deposit < threshold; year++){
+          deposit *= 1 + rate / 100
+      } 
+      return year
+    }
+    ```
+    This is a standard way, note var being used to spill the declaration out of the loop block context.
+    - We create a loop that runs as long as the deposit is lower than threshold
+    - in each step we multiply the deposit by base + rate
 
-  #### Iterative method
-  ```javascript
-  function depositProfit(deposit, rate, threshold) {
-    for (var year = 0; deposit < threshold; year++){
-        deposit *= 1 + rate / 100
-    } 
-    return year
-  }
-  ```
-  This is a standard way, note var being used to spill the declaration out of the loop block context.
-  - We create a loop that runs as long as the deposit is lower than threshold
-  - in each step we multiply the deposit by base + rate
 
-
-  #### Recursive method
-  ```javascript
-  const depositProfit = (deposit, rate, threshold, year = 0) => {
-    return deposit < threshold
-        ? depositProfit(deposit * (1 + rate / 100), rate, threshold, year + 1);
-        : year
-  }
-  ```
-  - We call the function inside itself as long as the goal is not reached
-  - we pass in another argument (year) with default value, 0, to serve as counter
+    #### Recursive method
+    ```javascript
+    const depositProfit = (deposit, rate, threshold, year = 0) => {
+      return deposit < threshold
+          ? depositProfit(deposit * (1 + rate / 100), rate, threshold, year + 1);
+          : year
+    }
+    ```
+    - We call the function inside itself as long as the goal is not reached
+    - we pass in another argument (year) with default value, 0, to serve as counter
   </details>
 
 ## Licenses
