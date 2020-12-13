@@ -1,7 +1,7 @@
 use std::string::String;
 
 fn greet() -> String {
-    return String::from("hello world!");
+    String::from("hello world!")
 }
 
 // Sample Tests:
