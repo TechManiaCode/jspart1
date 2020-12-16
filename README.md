@@ -1,6 +1,8 @@
 # Methods and algorithm with js
 
 ## To do:
+1) All Part 1 Solutions
+2) Describe
 
 All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For example:
   > #### Instruction:
