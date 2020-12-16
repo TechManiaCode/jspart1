@@ -15,6 +15,13 @@ const removeSmallest = (numbers) => {
   return new_tab;
 };
 
+// Second Solution
+const removeSmallest = (numbers) => {
+  let new_tab = [...numbers];
+  new_tab.splice(numbers.indexOf(Math.min(...numbers)), 1);
+  return new_tab;
+};
+
 
 // Sample Tests:
 Test.describe("removeSmallest", function() {

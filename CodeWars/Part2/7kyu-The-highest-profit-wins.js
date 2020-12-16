@@ -1,7 +1,4 @@
-const minMax = (arr) => {
-    return [arr.sort((a, b) => a-b)[0], 
-            arr.sort((a, b) => a-b)[arr.length -1]];
-  };
+const minMax = (arr) => [Math.min(...arr), Math.max(...arr)];
 
 // Sample Tests:
 var test = function(arr, res){
