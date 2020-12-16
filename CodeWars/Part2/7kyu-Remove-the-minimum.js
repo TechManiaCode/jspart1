@@ -1,11 +1,19 @@
-function removeSmallest(numbers) {
-    let v = numbers[0];
-    for(i=1; i < numbers.length; i++){
-      if (v > numbers[i]) {v = numbers[i];}
-    }
-    numbers.splice(numbers.indexOf(v), 1);
-    return numbers;
+const removeSmallest = (numbers) => {
+  let v = numbers[0];
+  let new_tab = [];
+  
+  
+  for(i=1; i < numbers.length; i++){
+    if (v > numbers[i]) {v = numbers[i];}
   }
+  
+  for(i = 0; i < numbers.length; i++){
+    if(i !== numbers.indexOf(v)){
+      new_tab.push(numbers[i]);
+    }
+  }
+  return new_tab;
+};
 
 
 // Sample Tests:
