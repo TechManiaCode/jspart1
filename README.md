@@ -8,12 +8,12 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
   > If the word's length is even, return the middle 2 characters.
   >
   > #### Examples:
-  ```txt
-  Kata.getMiddle("test") should return "es"
-  Kata.getMiddle("testing") should return "t"
-  Kata.getMiddle("middle") should return "dd"
-  Kata.getMiddle("A") should return "A"
-  ```
+  > ```txt
+  > Kata.getMiddle("test") should return "es"
+  > Kata.getMiddle("testing") should return "t"
+  > Kata.getMiddle("middle") should return "dd"
+  > Kata.getMiddle("A") should return "A"
+  > ```
   >
   > #### Input
   > A word (string) of length 0 < str < 1000
