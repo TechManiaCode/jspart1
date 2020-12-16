@@ -57,11 +57,13 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
       return "hello world!";
     };
     ```
-  
     ### Short
     ```javascript
     const greet = () => "hello world!";
     ```
+    #### Description:
+    > TODO:
+    
   </details>
   <details>
     <summary>Convert a Number to a String!</summary>
@@ -83,11 +85,146 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
          return num.toString();
     };
     ```
-    
     #### Short
     ```javascript
     const numberToString = num => num.toString();
     ```
+    #### Description:
+    > TODO:
+    
+  </details>
+  
+  #### Part II - Arrays and loops:
+  
+  <details>
+    <summary>Sum of two lowest positive integers</summary>
+  
+  - ### Instruction
+    > Create a function that returns the sum of the two lowest positive numbers 
+    given an array of minimum `4` positive integers. 
+    > No floats or non-positive integers will be passed.
+    >
+    > For example, when an array is passed like `[19, 5, 42, 2, 77]`, the output should be `7`.
+    >
+    > - #### Example:
+    > ```txt
+    > [10, 343445353, 3453445, 3453545353453] should return 3453455.
+    > ```
+  - ### Solution
+    #### Classic
+    ```javascript
+      const sumTwoSmallestNumbers = (numbers) => {  
+        numbers = numbers.sort((a, b) => a - b);
+        numbers = numbers.slice(0, 2);
+        return numbers.reduce((a, b) => a+b);
+      }
+    ```
+    #### Short
+    ```javascript
+      const sumTwoSmallestNumbers = (numbers) => {  
+        return numbers
+          .sort((a, b) => a - b)
+          .slice(0, 2)
+          .reduce((a, b) => a+b);
+     }
+    ```
+    #### Description:
+    > TODO:
+  
+  </details>
+  <details>
+    <summary>Remove the minimum</summary>
+  
+  - ### Instruction
+    > #### The museum of incredible dull things
+    > 
+    > The museum of incredible dull things wants to get rid of some exhibitions. 
+    > Miriam, the interior architect, comes up with a plan to remove the most boring exhibitions.
+    > She gives them a rating, and then removes the one with the lowest rating.
+    >
+    > However, just as she finished rating all exhibitions, she's off to an important fair,
+    > so she asks you to write a program that tells her the ratings of the items after
+    > one removed the lowest one. Fair enough.
+    >
+    > #### Task
+    > Given an array of integers, remove the smallest value. Do not mutate the original array/list.
+    > If there are multiple elements with the same value, remove the one with a lower index.
+    > If you get an empty array/list, return an empty array/list.
+    >
+    > Don't change the order of the elements that are left.
+    > 
+    > #### Examples
+    > ```javascript
+    > removeSmallest([1,2,3,4,5]) = [2,3,4,5]
+    > removeSmallest([5,3,2,1,4]) = [5,3,2,4]
+    > removeSmallest([2,2,1,2,1]) = [2,2,2,1]
+    > ```
+  - ### Solution
+    #### Clasic
+    ```javascript
+    const removeSmallest = (numbers) => {
+      let v = numbers[0];
+      let new_tab = [];
+      
+      
+      for(i=1; i < numbers.length; i++){
+        if (v > numbers[i]) {v = numbers[i];}
+      }
+      
+      for(i = 0; i < numbers.length; i++){
+        if(i !== numbers.indexOf(v)){
+          new_tab.push(numbers[i]);
+        }
+      }
+    return new_tab;
+    };
+    ```
+    #### Short
+    ```javascript
+    ```
+    #### Description:
+    > TODO:
+    
+  </details>
+  <details>
+    <summary>The highest profit wins!</summary>
+  
+  - ### Instruction
+    > #### Story
+    > 
+    > Ben has a very simple idea to make some profit: he buys something and sells it again.
+    > Of course, this wouldn't give him any profit at all if he was simply to buy and
+    > sell it at the same price. Instead, he's going to buy it for the
+    lowest possible price and sell it at the highest.
+    >
+    > #### Task
+    >
+    > Write a function that returns both the minimum and maximum number of the given list/array.
+    > 
+    > Examples
+    > ```javascript
+    > minMax([1,2,3,4,5])   == [1,5]
+    > minMax([2334454,5])   == [5, 2334454]
+    > minMax([1])           == [1, 1]
+    > ```
+    >
+    > #### Remarks
+    >
+    > All arrays or lists will always have at least one element, 
+    so you don't need to check the length. 
+    > Also, your function will always get an array or a list, 
+    you don't have to check for `null`, `undefined` or similar.
+  
+  - ### Solution
+    ```javascript
+      const minMax = (arr) => {
+        return [arr.sort((a, b) => a-b)[0], 
+                arr.sort((a, b) => a-b)[arr.length -1]];
+      };
+    ```
+    #### Description:
+    > TODO:
+    
   </details>
     
 ## Additional tasks:
