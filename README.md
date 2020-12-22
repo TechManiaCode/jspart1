@@ -360,6 +360,11 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     ```
     #### Short
     ```javascript
+      const removeSmallest = (numbers) => {
+        let new_tab = [...numbers];
+        new_tab.splice(numbers.indexOf(Math.min(...numbers)), 1);
+        return new_tab;
+      };
     ```
     #### Description:
     > TODO:
@@ -435,6 +440,47 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     <summary>Map method</summary>
   
   - ### Instruction:
+    > The Western Suburbs Croquet Club has two categories of membership, Senior and Open. 
+    They would like your help with an application form that will tell prospective members which category they will be placed.
+    > 
+    > To be a senior, a member must be at least 55 years old and have a handicap greater than 7.
+    > In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+    >
+    > #### Input:
+    > Input will consist of a list of lists containing two items each. 
+    Each list contains information for a single potential member. 
+    > Information consists of an integer for the person's age and an integer for the person's handicap.
+    >
+    > Note for F#: The input will be of (int list list) which is a List<List>
+    >
+    > #### Example Input:
+    > 
+    > ```javascript
+    > [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
+    > ```
+    > #### Output
+    > 
+    > Output will consist of a list of string values (in Haskell: Open or Senior)
+    > stating whether the respective member is to be placed in the senior or open category.
+    > 
+    > #### Example Output:
+    > ```javascript
+    > ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+    > ```
+  
+  - ### Solution
+    #### Classic
+    ```javascript
+      const openOrSenior = data => data.map(d => {
+        if(d[0] >= 55 && d[1] > 7) return 'Senior';
+          else return 'Open';
+      });
+    ```
+    #### Short
+    ```javascript
+      const openOrSenior = data => data.map( ([age, v]) => ( age >= 55 && v > 7)? 'Senior': 'Open');
+    ```
+    #### Description:
     > TODO:
     
   </details>
@@ -442,25 +488,103 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     <summary>Switch/object/array</summary>
   
   - ### Instruction:
+    > Complete the function which returns the weekday according to the input number:
+    >
+    > ```javascript
+    > 1 returns "Sunday"
+    > 2 returns "Monday"
+    > 3 returns "Tuesday"
+    > 4 returns "Wednesday"
+    > 5 returns "Thursday"
+    > 6 returns "Friday"
+    > 7 returns "Saturday"
+    > ```
+    >
+    > Otherwise returns `"Wrong, please enter a number between 1 and 7"`
+  - ### Solution
+    ```javascript
+      function whatday(num) { 
+        switch(num){
+            case 1:
+              return "Sunday";
+              break;
+            case 2:
+              return "Monday";
+              break;
+            case 3:
+              return "Tuesday";
+              break;
+            case 4:
+              return "Wednesday";
+              break;
+            case 5:
+              return "Thursday";
+              break;
+            case 6:
+              return "Friday";
+              break;
+            case 7:
+              return "Saturday";
+              break;
+            default:
+              return "Wrong, please enter a number between 1 and 7";
+              break;
+        }
+      }
+    ```
+    #### Description:
     > TODO:
+    
   </details>
   <details>
     <summary>Map</summary>
   
   - ### Instruction:
+    > Given an array of integers, return a new array with each value doubled.
+    >
+    > #### Examples:
+    >
+    > ```javascript [1, 2, 3] --> [2, 4, 6] ```
+    >
+    > For the beginner, try to use the `map` method - it comes in very handy quite a lot so is a good one to know.
+  - ### Solution
+    ```javascript
+      const maps = (x) => x.map(i=>i*2);
+    ```
+    #### Description:
     > TODO:
+    
   </details>
   <details>
     <summary>Concat/reduce</summary>
   
   - ### Instruction:
+    > I'm new to coding and now I want to get the sum of two arrays...actually the sum
+    of all their elements. I'll appreciate for your help.
+    > 
+    > P.S. Each array includes only integer numbers. Output is a number too.
+  - ### Solution
+    ```javascript
+      const arrayPlusArray = (arr1, arr2) => arr1.concat(arr2).reduce((a, cv) => a + cv);
+    ```
+    #### Description:
     > TODO:
+    
   </details>
   <details>
     <summary>Includes()</summary>
   
   - ### Instruction:
-    > TODO:
+    > You will be given an array `a` and a value `x`.
+    All you need to do is check whether the provided array contains the value.
+    >
+    > Array can contain numbers or strings. `X` can be either.
+    >
+    > Return `true` if the array contains the `value`, false if not.
+  - ### Solution
+    ```javascript
+      const check = (a, x) => a.includes(x);
+    ```
   </details>
     
 ## Additional tasks:
