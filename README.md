@@ -1,8 +1,7 @@
 # Methods and algorithm with js
 
 ## To do:
-1) All Part 1 Solutions
-2) Describe
+1) Describe
 
 All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For example:
   > #### Instruction:
@@ -53,7 +52,7 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
   
   - ### Solution
   
-    ### Clasic
+    ### Classic
     ```javascript
     const greet = () => {
       return "hello world!";
@@ -81,7 +80,7 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     > - numberToString(999); //returns '999';
 
   - ### Solution:
-    #### Clasic
+    #### Classic
     ```javascript
     const numberToString = num => {
          return num.toString();
@@ -94,6 +93,184 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     #### Description:
     > TODO:
     
+  </details>
+  <details>
+    <summary>Get the middle character</summary>
+  
+  - ### Instruction
+    > You are going to be given a word. Your job is to return the middle character of the word.
+    > If the word's length is odd, return the middle character. If the word's 
+    length is even, return the middle 2 characters.
+    >
+    > #### Examples:
+    >
+    > ```txt
+    > Kata.getMiddle("test") should return "es"
+    > Kata.getMiddle("testing") should return "t"
+    > Kata.getMiddle("middle") should return "dd"
+    > Kata.getMiddle("A") should return "A"
+    > ```
+    > 
+    > #### Input:
+    > 
+    > A word `(string)` of length `0 < str < 1000` (In javascript you may get slightly more 
+    > than `1000` in some test cases due to an error in the test cases). 
+    > You do not need to test for this. This is only here to tell 
+    you that you do not need to worry about your solution timing out.
+    >
+    > #### Output:
+    > 
+    > The middle character(s) of the word represented as a string.
+  - ### Solution:
+    #### Classic:
+    ```javascript
+      const getMiddle = (s) => {
+        if(s.length > 0 && s.length < 1000){
+          const _p = (s.length % 2 === 0)? true: false;
+          if(_p){
+            const _id = s.length/2 - 1;
+            return s[_id] + s[_id+1];
+          } else {
+              const _id = (s.length-1)/2;
+              return s[_id];
+          }
+        }
+      };
+    ```
+    #### Short:
+    ```javascript
+      const getMiddle = (s) => {
+        if(s.length > 0 && s.length < 1000){
+          const _mid = Math.floor(s.length / 2);
+          return (s.length % 2 === 0)? s[_mid - 1] + s[_mid]: s[_mid];
+        }
+      };
+    ```
+    #### Description:
+    > TODO:
+    
+  </details>
+  <details>
+    <summary>How old will I be in 2099?</summary>
+  
+  - ### Instruction:
+    > Philip's just turned four and he wants to know how old he will be in various 
+    years in the future such as 2090 or 3044. 
+    > His parents can't keep up calculating this so they've begged you to help them
+    out by writing a programme that can answer Philip's endless questions.
+    > 
+    > Your task is to write a function that takes two parameters: the year of birth 
+    and the year to count years in relation to.
+    > As Philip is getting more curious every day he may soon want to know how many 
+    years it was until he would be born, so your function needs to work with both dates in the future and in the past.
+    > 
+    > Provide output in this format: For dates in the future: 
+    > `"You are ... year(s) old."` 
+    For dates in the past: `"You will be born in ... year(s)."` 
+    > If the year of birth equals the year requested return: `"You were born this very year!"`
+    > 
+    > "..." are to be replaced by the number, followed and proceeded by a single space.
+    > Mind that you need to account for both "year" and "years", depending on the result.
+  - ### Solution:
+    ```javascript
+      const  calculateAge = (w1, w2) => {
+        const age = w2 - w1;
+        if (age === 0) return `You were born this very year!`;
+          return (age > 0)?
+            `You are ${age} year${age>1?'s':''} old.`:
+            `You will be born in ${-age} year${-age>1?'s':''}.`;
+      };
+    ```
+    #### Description:
+      > TODO:
+  </details>
+  <details>
+    <summary>Are you playing banjo?</summary>
+  
+  - ### Instruction:
+    > Create a function which answers the question "Are you playing banjo?".
+    If your name starts with the letter "R" or lower case "r", you are playing banjo!
+    > 
+    > The function takes a name as its only argument, and returns one of the following strings:
+    > 
+    > #### Examples:
+    > ```javascript
+    > name + " plays banjo" 
+    > name + " does not play banjo"
+    > ```
+    > 
+    > Names given are always valid strings.
+  - ### Solution:
+    ```javascript
+      const areYouPlayingBanjo = name => {
+          return (name[0].toUpperCase() ==="R")?
+                `${name} plays banjo`:
+                `${name} does not play banjo`;
+      }
+    ```
+    #### Description:
+      > TODO:
+  
+  </details>
+  <details>
+    <summary>The coupon code</summary>
+  
+  - ### Instruction:
+    > #### Story:
+    > 
+    > Your online store likes to give out coupons for special occasions.
+    Some customers try to cheat the system by entering invalid codes or using expired coupons.
+    > 
+    > #### Task:
+    > 
+    > Your mission:
+    > Write a function called `checkCoupon` which verifies that a coupon code is valid and not expired.
+    >
+    > A coupon is no more valid on the day `AFTER` the expiration date. 
+    > All dates will be passed as strings in this format: `"MONTH DATE, YEAR"`.
+    > 
+    > #### Examples:
+    >
+    > ```javascript
+    >   checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
+    >   checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
+    > ```
+  - ### Solution:
+    #### Classic
+    ```javascript
+      const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => {
+        const months = [
+          "January", "February", "March", "April", "May",
+          "June", "July", "August", "September", "October",
+          "November", "December"];
+    
+        if (enteredCode === correctCode){
+          const [_cmonth_day, _cyear] = currentDate.split(',');
+          const [_emonth_day, _eyear] = expirationDate.split(',');
+          if(Number(_cyear) <= Number(_eyear)){
+              let [_cmonth, _cday] = _cmonth_day.split(' ');
+              let [_emonth, _eday] = _emonth_day.split(' ');
+              _cmonth = months.indexOf(_cmonth);
+              _emonth = months.indexOf(_emonth);
+              if(_cmonth < _emonth){
+                  return true;
+              } else if(_cmonth === _emonth) {
+                return (Number(_cday) <= Number(_eday))? true: false;
+              } else return false;
+          } else return false;
+      } else return false;
+    };
+    ```
+    ### Short:
+    ```javascript
+      const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => {
+          return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate);
+      };
+    ```
+    #### Description:
+      > `Classic` version it does not take into account any date notation other than: `Month day, year`
+      > So this Version is incorrect/bad.
+      
   </details>
   
   #### Part II - Arrays and loops:
@@ -227,6 +404,63 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     #### Description:
     > TODO:
     
+  </details>
+  
+  ### Part III - Iterators
+  
+  <details>
+    <summary>Reduce</summary>
+  
+  - ### Instruction:
+    > In this kata you will create a function that takes a list of
+    non-negative integers and strings and returns a new list with the strings filtered out.
+    > 
+    > #### Examples:
+    > 
+    > ```javascript
+    >   filter_list([1,2,'a','b']) == [1,2]
+    >   filter_list([1,'a','b',0,15]) == [1,0,15]
+    >   filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+    > ```
+  
+  - ### Solution:
+    ```javascript
+      const filter_list = (l) => l.filter(l => typeof l == 'number');
+    ```
+    #### Description:
+    > TODO:
+    
+  </details>
+  <details>
+    <summary>Map method</summary>
+  
+  - ### Instruction:
+    > TODO:
+    
+  </details>
+  <details>
+    <summary>Switch/object/array</summary>
+  
+  - ### Instruction:
+    > TODO:
+  </details>
+  <details>
+    <summary>Map</summary>
+  
+  - ### Instruction:
+    > TODO:
+  </details>
+  <details>
+    <summary>Concat/reduce</summary>
+  
+  - ### Instruction:
+    > TODO:
+  </details>
+  <details>
+    <summary>Includes()</summary>
+  
+  - ### Instruction:
+    > TODO:
   </details>
     
 ## Additional tasks:
