@@ -51,6 +51,105 @@
     - For an end value we need to add 1 to the result because **end value of slice function is non-inclusive**;
   </details>
 
+<details>
+    <summary>How old</summary>
+
+  - ### Instruction
+    > Tell the kid how old is he based on given year of birth and year asked
+    >
+    > - If the year asked is lower, it will return `You will be born in x years`
+    > - If the year is higher - `You are x years old`
+    > - If it's the same year - `You were born this very year!`
+    >
+    > #### Input
+    > Two numbers - a year of birth and a year asked
+    >
+    > #### Output
+    > A string with response.
+
+  - ### Solution:
+    ```javascript
+    function calculateAge(yearBorn, yearAsked) {
+      const years = yearAsked - yearBorn;
+      const absYears = Math.abs(years);
+      const timespan = absYears > 1 ? 'years' : 'year';
+      
+      const response = new Map();
+      response.set(-1,`You will be born in ${absYears} ${timespan}.`);
+      response.set(0, `You were born this very year!`);
+      response.set(1, `You are ${absYears} ${timespan} old.`);
+      
+      return response.get(Math.sign(years))
+    }```
+  The key part is a function Math.sign that returns 0,1,-1 depending on sign.
+
+</details>
+
+<details>
+  <summary>The museum of dull things</summary>
+
+  - ### Instruction
+> Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list.
+> 
+> Don't change the order of the elements that are left.
+- ### Solution
+  ```javascript
+    const removeSmallest = numbers => numbers.filter((_,i) => i !== numbers.indexOf(Math.min(...numbers)));
+  ```
+
+  We filter out the elements
+
+
+</details>
+<details>
+  <summary>Categorize new club members</summary>
+
+  - ### Instruction
+  > The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+  >
+  > To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+  - ### Solution
+  ```javascript
+  const openOrSenior = data => data.map(([age, handicap]) => 
+    age >= 55 && handicap > 7 
+    ? 'Senior' 
+    : 'Open'
+  );
+  ```
+</details>
+<details>
+  <summary>What Day</summary>
+
+  - ### Instruction
+  > Complete the function which returns the weekday according to the input number:
+  - ### Solution
+  ```javascript
+  // Object version
+    const whatday = num => ({
+    1: 'Sunday',
+    2: 'Monday',
+    3: 'Tuesday',
+    4: 'Wednesday',
+    5: 'Thursday',
+    6: 'Friday',
+    7: 'Saturday'
+  }[num] || 'Wrong, please enter a number between 1 and 7');
+
+  //Map version
+  const whatday = num => new Map([
+    [1, 'Sunday'], 
+    [2, 'Monday'],
+    [3, 'Tuesday'],
+    [4, 'Wednesday'],
+    [5, 'Thursday'],
+    [6, 'Friday'],
+    [7, 'Saturday']
+  ]).get(num) || 'Wrong, please enter a number between 1 and 7';
+  ```
+</details>
+
+> Less interesting cases are in the CodeWars folder.
+
 ### [AdventOfCode](https://adventofcode.com/)
   <details>
     <summary>Day 1 - Part 1: Expense report - sums of 2</summary>
@@ -474,6 +573,143 @@
   ```
 
   </details>
+  <details>
+    <summary>Day 13 - Extract k-th element of an array</summary>
+
+  - ### Solution
+    ```javascript
+    const extractEachKth = (nums, index) => nums.filter(num => num % index !== 0);
+    ```
+  </details>
+  <details>
+    <summary>Day 14 - Return largest difference between 2 adjacent numbers</summary>
+
+  - ### Solution
+    #### Via reduce
+    ```javascript
+    const arrayMaximalAdjacentDifference = nums => nums.reduce(compareDifferences, 0);
+ 
+    const compareDifferences = (maxDifference, num, i, nums) => {
+      const currentDifference = Math.abs(num - nums[i - 1]);
+      return currentDifference > maxDifference ? currentDifference : maxDifference;
+    }
+    ```
+    #### Classic way
+    ```javascript
+    const arrayMaximalAdjacentDifference = nums => {
+      let maxDifference = 0;
+      let currentDifference;
+      for(let i = 1; i <= nums.length; i++){
+          currentDifference = Math.abs(nums[i] - nums[i - 1]);
+          if (currentDifference > maxDifference )
+              maxDifference = currentDifference;
+      }
+      return maxDifference;
+    }
+    ```
+  </details>
+  <details>
+    <summary>Day 16 - Transform a sentence into dashed words separated by spaces</summary>
+
+  - ### Solution
+    ```javascript
+    const insertDashes = arr => arr.split(' ').map(word => [...word].join('-')).join(' ');
+    ```
+  </details>
+  <details>
+    <summary>Day 17 - Return number of different letters in a string</summary>
+
+  - ### Solution
+    #### With Set
+    ```javascript
+    const differentSymbolsNaive = str => [...new Set(str)].length
+    ```
+    #### Bonus - character counts
+    ```javascript
+    const differentSymbolsNaive = str => [...str].reduce(countChars, {})
+
+    const countChars = (obj, char) => {
+      obj.hasOwnProperty(char) ? obj[char]++ : obj[char] = 1;
+      return obj
+    };
+    ```
+  </details>
+  <details>
+    <summary>Day 18 - Remap an array</summary>
+
+  - ### Instructions
+    > Given array of integers, converts it so that each position shows the last number lower than the one at the position that occured before that position OR -1.
+
+  - ### Solution
+    ```javascript
+    const arrayPreviousLess = nums => {
+      return nums.map((num, idx) => nums.reduce((bestMatch, currNum, currIdx) => {
+        return currNum < num && currIdx < idx ? currNum : bestMatch;
+      }, -1));
+    }
+    ```
+  </details>
+  <details>
+    <summary>Day 19 - Check if subset of the alphabet</summary>
+
+  - ### Instructions
+  > Check if given sequence of letters is a subset of the alphabet that does not contain duplicates.
+
+  - ### Solution
+  ```javascript
+  const alphabetSubsequence = str => {
+    const stringSet = new Set([...str]);
+    const orderedStr = [...str].sort((a,b) => a - b).join('');
+    const isOrdered = str === orderedStr;
+    const isDuplicateFree = stringSet.size === str.length
+    
+    return isDuplicateFree && isOrdered
+  }
+  ```
+</details>
+<details>
+  <summary>Day 20 - Return domain types</summary>
+
+- ### Instructions
+> For given list of domains, return their types
+- ### Solution
+```javascript
+const domainType = domains => {
+  const topLevelDomains = domains.map(domain => domain.split('.').slice(-1).pop())
+  return topLevelDomains.map(getTopDomainType);
+}
+
+const getTopDomainType = domain => new Map([
+  ['org', 'organization'],
+  ['com', 'commercial'],
+  ['net', 'network'],
+  ['info', 'information']
+]).get(domain);
+```
+</details>
+<details>
+  <summary>Day 21 - Check if sum can be obtained</summary>
+
+  - ### Instructions
+  > Check if a sum looked for can be obtained between two given arrays
+  - ### Solution
+  ```javascript 
+  const sumOfTwo = (nums1, nums2, value) => {
+    const allSums = nums1.map(num => nums2.map(pair => num + pair)).flat();
+    return allSums.includes(value);
+  }
+  ```
+</details>
+<details>
+  <summary>Day 22 - Obtain a list of items in a matrix column</summary>
+
+  - ### Solution
+  ```javascript
+  const extractMatrixColumn = (matrix, column) => matrix.map(row => row[column]);
+  ```
+</details>
+
+> DOM-related days have been skipped here
 
 ## Licenses
 Preambles for different Licenses.
