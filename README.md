@@ -411,7 +411,7 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     
   </details>
   
-  ### Part III - Iterators
+  #### Part III - Iterators
   
   <details>
     <summary>Reduce</summary>
@@ -585,8 +585,89 @@ All the [codewars](https://www.codewars.com/) task in list from CodersCrew. For 
     ```javascript
       const check = (a, x) => a.includes(x);
     ```
+    #### Description:
+    > TODO:
   </details>
+  
+  #### Part VI - Object
+  <details>
+    <summary>Object regular</summary>
+  
+  - ### Instruction:
+    > Regular Ball Super Ball
+    > Create a class Ball.
+    >
+    > Ball objects should accept one argument for "ball type" when instantiated.
+    > 
+    > If no arguments are given, ball objects should instantiate with a "ball type" of "regular."
+    > ```javascript
+    >   ball1 = new Ball();
+    >   ball2 = new Ball("super");
+    > 
+    >   ball1.ballType     //=> "regular"
+    >   ball2.ballType     //=> "super"
+    > ```
+  - ### Solution:
+    ```javascript
+      function Ball(ballType) {
+        this.ballType = (ballType !== undefined)? ballType: "regular";
+      };
+    ```
+    #### Description:
+    > TODO:
+  </details>
+  
+  #### Part V - Classes
+  <details>
+    <summary>Adam and Eva Classes</summary>
+  
+  - ### Instruction:
+    > According to the creation myths of the Abrahamic religions,
+    Adam and Eve were the first Humans to wander the Earth.
+    >
+    > You have to do God's job. The creation method must return an array 
+    > of length 2 containing objects (representing `Adam` and `Eve`). 
+    > The first object in the array should be an instance of the class `Man`.
+    The second should be an instance of the class `Woman`. 
+    > Both objects have to be subclasses of `Human`. 
+    > Your job is to implement the `Human`, `Man` and `Woman` classes.
+    > ```
+  - ### Solution:
+    ```javascript
+     class God{
+        static create(){
+          return [new Man(), new Woman()];
+        }
+      }
+      
+    class Human extends God{
+      constructor(){
+        super();
+      }
+    }
     
+    class Man extends Human {
+      constructor(){
+        super();
+      }
+    }
+
+    class Woman extends Human{
+      constructor(){
+        super();
+      }
+    }
+    ```
+    #### Description:
+    > TODO:
+  </details>
+
+### [ObjectTasks](https://github.com/kartofelek007/zadania-obiekty)
+  TODO:
+  
+### [JavaScript-Algorithm-and-Data-Structur](https://github.com/trekhleb/javascript-algorithms/blob/master/README.pl-PL.md)
+  TODO:
+  
 ## Additional tasks:
 
 One or more task from page:
